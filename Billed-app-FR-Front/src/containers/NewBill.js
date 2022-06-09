@@ -91,7 +91,7 @@ export default class NewBill {
 			fileName: this.fileName,
 			status: 'pending',
 		};
-		//this.updateBill(bill);
+		//this.updateBill(bill);//
 		this.onNavigate(ROUTES_PATH['Bills']);
 	};
 
