@@ -25,7 +25,7 @@ import store from '../__mocks__/store.js';
 //     })
 //   })
 // })
-////END GIVEN
+////END GIVE
 
 describe('Given I am connected as an employee', () => {
 	describe('When I am on NewBill Page', () => {
@@ -273,7 +273,7 @@ describe('After I have filled up the form correctly', () => {
 			const form = document.querySelector('form');
 			form.addEventListener('submit', handleSubmit);
 			expect(form).toBeDefined();
-			fireEvent.submit(form);
+			//fireEvent.submit(form);
 			//fireEvent.click(submitButton);
 			//expect(handleSubmit).toHaveBeenCalled();
 		});
