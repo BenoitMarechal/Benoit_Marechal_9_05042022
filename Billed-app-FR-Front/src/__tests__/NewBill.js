@@ -25,7 +25,7 @@ import store from '../__mocks__/store.js';
 //     })
 //   })
 // })
-////END GIVE
+////END GIVEN
 
 describe('Given I am connected as an employee', () => {
 	describe('When I am on NewBill Page', () => {
