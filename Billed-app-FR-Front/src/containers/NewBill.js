@@ -94,6 +94,7 @@ export default class NewBill {
 		//this.updateBill(bill);//
 		this.onNavigate(ROUTES_PATH['Bills']);
 	};
+	//adding a random comment
 
 	// not need to cover this function by tests
 	/* istanbul ignore next */
