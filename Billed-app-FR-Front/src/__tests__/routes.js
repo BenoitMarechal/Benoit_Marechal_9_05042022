@@ -4,7 +4,6 @@
 
 import { ROUTES, ROUTES_PATH } from '../constants/routes';
 import { screen } from '@testing-library/dom';
-
 const data = [];
 const loading = false;
 const error = null;
@@ -32,7 +31,6 @@ describe('Given I am connected and I am on some page of the app', () => {
 				loading,
 				error,
 			});
-			//return un BillUI
 			document.body.innerHTML = html;
 			expect(screen.getAllByText('Mes notes de frais')).toBeTruthy();
 		});

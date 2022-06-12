@@ -28,6 +28,7 @@ const rows = (data) => {
 
 		return dateA === dateB ? 0 : dateA < dateB ? 1 : -1;
 	});
+	//fin du tri
 	return data && data.length ? data.map((bill) => row(bill)).join('') : '';
 };
 
@@ -50,13 +51,10 @@ export default ({ data: bills, loading, error }) => {
   `;
 
 	if (loading) {
-		//	console.log('LOOOOOOAAAADDIIINNNGGGGGG');
 		return LoadingPage();
 	} else if (error) {
 		return ErrorPage(error);
 	}
-	//	console.log('building new Bills UI');
-	//	console.log(bills);
 
 	return `
     <div class='layout'>

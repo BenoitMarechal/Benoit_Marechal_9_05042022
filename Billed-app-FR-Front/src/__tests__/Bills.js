@@ -11,21 +11,9 @@ import { bills } from '../fixtures/bills.js';
 import { ROUTES, ROUTES_PATH } from '../constants/routes.js';
 import { localStorageMock } from '../__mocks__/localStorage.js';
 import mockStore from '../__mocks__/store';
-
 import router from '../app/Router.js';
-import store from '../__mocks__/store.js';
-//a supprimer?
-
-/////////////
-import userEvent from '@testing-library/user-event';
-import DashboardFormUI from '../views/DashboardFormUI.js';
-import DashboardUI from '../views/DashboardUI.js';
-import Dashboard, { filteredBills, cards } from '../containers/Dashboard.js';
-
-///////////////
 
 jest.mock('../app/store', () => mockStore);
-
 describe('Given I am connected as an employee', () => {
 	describe('When I am on Bills Page', () => {
 		test('Then bill icon in vertical layout should be highlighted', async () => {
@@ -41,7 +29,6 @@ describe('Given I am connected as an employee', () => {
 			const root = document.createElement('div');
 			root.setAttribute('id', 'root');
 			document.body.append(root);
-			//fonction qui vient remplir la div root avec un BillsUI
 			router();
 			window.onNavigate(ROUTES_PATH.Bills);
 			await waitFor(() => screen.getByTestId('icon-window'));
@@ -62,7 +49,6 @@ describe('Given I am connected as an employee', () => {
 			expect(dates).toEqual(datesSorted);
 		});
 
-		//new
 		test('Modal should be hidden', () => {
 			document.body.innerHTML = BillsUI({ data: bills });
 			let modal = document.getElementById('modaleFile');
@@ -105,7 +91,6 @@ describe('Given I am connected as an employee', () => {
 			let modal = document.getElementById('modaleFile');
 			expect(modal).toBeTruthy();
 			expect(modal).toBeVisible();
-			// expect(modal).toHaveClass('modal fade show');
 		});
 
 		test('I change page when I click on new bill', () => {
@@ -138,8 +123,6 @@ describe('Given I am connected as an employee', () => {
 		});
 	});
 });
-
-/////////////////////////
 describe('Given I am a user connected as Employee', () => {
 	describe('When I navigate to Bills', () => {
 		test('fetches user"s bills', async () => {
@@ -157,7 +140,6 @@ describe('Given I am a user connected as Employee', () => {
 			expect(check).toBeTruthy();
 		});
 
-		///////////////////////////////////////////////////////////////////////
 		describe('When an error occurs on API', () => {
 			beforeEach(() => {
 				jest.spyOn(mockStore, 'bills');
@@ -207,4 +189,3 @@ describe('Given I am a user connected as Employee', () => {
 		});
 	});
 });
-///////////

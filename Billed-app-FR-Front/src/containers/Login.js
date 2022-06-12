@@ -28,8 +28,6 @@ export default class Login {
 	}
 	handleSubmitEmployee = (e) => {
 		e.preventDefault();
-		console.log('handleemployee');
-		//console.log(this.store);
 		const user = {
 			type: 'Employee',
 			email: e.target.querySelector(`input[data-testid="employee-email-input"]`)

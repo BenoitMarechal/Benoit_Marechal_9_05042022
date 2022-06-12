@@ -9,7 +9,6 @@ export const filteredBills = (data, status) => {
 	return data && data.length
 		? data.filter((bill) => {
 				let selectCondition;
-
 				// in jest environment
 				if (typeof jest !== 'undefined') {
 					selectCondition = bill.status === status;
@@ -21,7 +20,6 @@ export const filteredBills = (data, status) => {
 						bill.status === status &&
 						![...USERS_TEST, userEmail].includes(bill.email);
 				}
-
 				return selectCondition;
 		  })
 		: [];
@@ -72,9 +70,6 @@ export const getStatus = (index) => {
 };
 export default class {
 	constructor({ document, onNavigate, store, bills, localStorage }) {
-		console.log('building dashboard');
-		console.log(bills);
-		console.log(localStorage);
 		this.document = document;
 		this.onNavigate = onNavigate;
 		this.store = store;
@@ -85,7 +80,6 @@ export default class {
 	}
 
 	handleClickIconEye = () => {
-		console.log('handle click on eye dashboard');
 		const billUrl = $('#icon-eye-d').attr('data-bill-url');
 		const imgWidth = Math.floor($('#modaleFileAdmin1').width() * 0.8);
 		$('#modaleFileAdmin1')
@@ -100,7 +94,6 @@ export default class {
 	};
 
 	handleEditTicket(e, bill, bills) {
-		console.log(bill);
 		if (this.counter === undefined || this.id !== bill.id) {
 			this.counter = 0;
 		}
@@ -154,7 +147,6 @@ export default class {
 
 	handleShowTickets(e, bills, index) {
 		//index=1, 2 ou 3 pour attente, validé et refusé
-		// console.log('handle show pour ' + index);
 		if (this.counter === undefined || this.index !== index) this.counter = 0;
 		if (this.index === undefined || this.index !== index) this.index = index;
 		if (this.counter % 2 === 0) {
@@ -173,13 +165,10 @@ export default class {
 		bills.forEach((bill) => {
 			let card = $(`#open-bill${bill.id}`)[0];
 			if (card) {
-				//console.log(card.parentNode);
 				let ParentIndex = parseInt(
 					card.parentElement.id.charAt(card.parentElement.id.length - 1)
 				);
-				//	console.log(this.index);
 				if (ParentIndex === this.index) {
-					//console.log(bill.name);
 					$(`#open-bill${bill.id}`).click((e) =>
 						this.handleEditTicket(e, bill, bills)
 					);

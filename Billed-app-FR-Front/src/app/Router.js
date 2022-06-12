@@ -3,10 +3,8 @@ import Login, { PREVIOUS_LOCATION } from '../containers/Login.js';
 import Bills from '../containers/Bills.js';
 import NewBill from '../containers/NewBill.js';
 import Dashboard from '../containers/Dashboard.js';
-
 import BillsUI from '../views/BillsUI.js';
 import DashboardUI from '../views/DashboardUI.js';
-
 import { ROUTES, ROUTES_PATH } from '../constants/routes.js';
 
 export default () => {
@@ -25,7 +23,6 @@ export default () => {
 				store,
 			});
 		} else if (pathname === ROUTES_PATH['Bills']) {
-			console.log('lancement ROUTES{pathname, loading = true');
 			rootDiv.innerHTML = ROUTES({ pathname, loading: true });
 			const divIcon1 = document.getElementById('layout-icon1');
 			const divIcon2 = document.getElementById('layout-icon2');

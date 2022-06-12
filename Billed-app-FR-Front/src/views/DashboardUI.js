@@ -6,10 +6,6 @@ import { filteredBills } from '../containers/Dashboard.js';
 import ArrowIcon from '../assets/svg/arrow.js';
 
 export default ({ data, loading, error }) => {
-	console.log('building dashboard UI');
-	console.log('data');
-	console.log(data);
-
 	if (loading) {
 		return LoadingPage();
 	} else if (error) {

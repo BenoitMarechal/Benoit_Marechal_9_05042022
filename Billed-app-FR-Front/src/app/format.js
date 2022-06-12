@@ -1,5 +1,4 @@
 export const formatDate = (dateStr) => {
-	//console.log(dateStr);
 	const date = new Date(dateStr);
 	const ye = new Intl.DateTimeFormat('eng', { year: 'numeric' }).format(date);
 	const mo = new Intl.DateTimeFormat('eng', { month: 'short' }).format(date);
@@ -29,11 +28,6 @@ export const FRDateToDate = (date) => {
 	let mm = frenchMonths.indexOf(date.split(' ')[1]);
 	let yy = parseInt(date.split(' ')[2]) + 2000;
 	let engDate = new Date(yy, mm, dd);
-
-	// console.log(mm.toLocaleString('fr', { month: 'short' }));
-	//console.log(yy);
-	// console.log(date);
-	//console.log(engDate);
 	return engDate;
 };
 

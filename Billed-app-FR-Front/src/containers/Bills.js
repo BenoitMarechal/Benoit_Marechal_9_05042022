@@ -4,10 +4,6 @@ import Logout from './Logout.js';
 
 export default class {
 	constructor({ document, onNavigate, store, localStorage }) {
-		//	console.log('building new Bills class');
-		//	console.log(onNavigate);
-		//	console.log(store);
-		//	console.log(localStorage);
 		this.document = document;
 		this.onNavigate = onNavigate;
 		this.store = store;
@@ -27,7 +23,6 @@ export default class {
 	}
 
 	handleClickNewBill = () => {
-		//	console.log('log');
 		this.onNavigate(ROUTES_PATH['NewBill']);
 	};
 
@@ -46,27 +41,13 @@ export default class {
 			.html(
 				`<div style='text-align: center;' class="bill-proof-container"><img width=${imgWidth} src=${billUrl} alt="Bill" /></div>`
 			);
-		//	console.log('handle click on eye Bills');
 		this.displayModal();
 		//old
 		//initial modal openning line
 		//$('#modaleFile').modal('show');
 		//end old
-		//new:
-		// $(document).ready(function () {
-		// 	$('#modaleFile').modal('show');
-		// });
-
-		//end new
 	};
-
-	///adding download function
-	// handleClickIconDownload = (icon) => {
-	// 	const billUrl = icon.getAttribute('data-bill-url');
-	// };
-
 	getBills = () => {
-		//console.log('getBills was called');
 		if (this.store) {
 			return this.store
 				.bills()
@@ -91,20 +72,6 @@ export default class {
 							};
 						}
 					});
-					//	console.log('length', bills.length);
-					// console.log(bills);
-					// //trier ici
-					// bills.sort(function (a, b) {
-					// 	return b.date.localeCompare(a.date);
-					// });
-					// bills.forEach((bill) => {
-					// 	let formatedDate = formatDate(bill.date);
-					// 	bill.date = formatedDate;
-					// });
-
-					// console.log(bills);
-					// console.log(this.store);
-					//console.log(bills);
 					return bills;
 				});
 		}
