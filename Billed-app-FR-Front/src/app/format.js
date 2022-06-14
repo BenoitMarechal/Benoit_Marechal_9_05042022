@@ -1,5 +1,6 @@
 export const formatDate = (dateStr) => {
 	const date = new Date(dateStr);
+
 	const ye = new Intl.DateTimeFormat('eng', { year: 'numeric' }).format(date);
 	const mo = new Intl.DateTimeFormat('eng', { month: 'short' }).format(date);
 	const da = new Intl.DateTimeFormat('eng', { day: '2-digit' }).format(date);
